@@ -329,12 +329,15 @@ namespace Champlain {
 		protected NetworkTileSource ();
 		[CCode (has_construct_function = false)]
 		public NetworkTileSource.full (string id, string name, string license, string license_uri, uint min_zoom, uint max_zoom, uint tile_size, Champlain.MapProjection projection, string uri_format, Champlain.Renderer renderer);
+		public int get_max_conns ();
 		public bool get_offline ();
 		public unowned string get_proxy_uri ();
 		public unowned string get_uri_format ();
+		public void set_max_conns (int max_conns);
 		public void set_offline (bool offline);
 		public void set_proxy_uri (string proxy_uri);
 		public void set_uri_format (string uri_format);
+		public int max_conns { get; set; }
 		public bool offline { get; set; }
 		public string proxy_uri { get; set; }
 		public string uri_format { get; set construct; }
@@ -635,12 +638,14 @@ namespace Champlain {
 	[Deprecated]
 	public const string MAP_SOURCE_OAM;
 	[CCode (cheader_filename = "champlain/champlain.h", cname = "CHAMPLAIN_MAP_SOURCE_OSM_AERIAL_MAP")]
+	[Deprecated]
 	public const string MAP_SOURCE_OSM_AERIAL_MAP;
 	[CCode (cheader_filename = "champlain/champlain.h", cname = "CHAMPLAIN_MAP_SOURCE_OSM_CYCLE_MAP")]
 	public const string MAP_SOURCE_OSM_CYCLE_MAP;
 	[CCode (cheader_filename = "champlain/champlain.h", cname = "CHAMPLAIN_MAP_SOURCE_OSM_MAPNIK")]
 	public const string MAP_SOURCE_OSM_MAPNIK;
 	[CCode (cheader_filename = "champlain/champlain.h", cname = "CHAMPLAIN_MAP_SOURCE_OSM_MAPQUEST")]
+	[Deprecated]
 	public const string MAP_SOURCE_OSM_MAPQUEST;
 	[CCode (cheader_filename = "champlain/champlain.h", cname = "CHAMPLAIN_MAP_SOURCE_OSM_OSMARENDER")]
 	[Deprecated]

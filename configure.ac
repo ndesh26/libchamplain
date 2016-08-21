@@ -67,7 +67,7 @@ PKG_CHECK_MODULES(DEPS,
       cairo >= 1.4
       gio-2.0 >= 2.16
       sqlite3 >= 3.0
-      libsoup-2.4 >= 2.34
+      libsoup-2.4 >= 2.42
   ]
 )
 AC_SUBST(DEPS_CFLAGS)
@@ -94,14 +94,6 @@ AC_ARG_ENABLE(debug,
 if test x$enable_debug = xyes; then
   AC_DEFINE(ENABLE_DEBUG, [], [Enable debug code])
 fi
-
-# -----------------------------------------------------------
-# Enable Maemo optimizations
-# -----------------------------------------------------------
-
-AC_ARG_ENABLE(maemo,
-  AS_HELP_STRING([--enable-maemo],[compile with maemo optimizations]),
-    enable_maemo=$enableval, enable_maemo=no)
 
 # -----------------------------------------------------------
 # Enable gtk
@@ -191,14 +183,9 @@ CHAMPLAIN_CONFIG_COMMANDS([champlain/champlain-features.h],
     echo '#define CHAMPLAIN_HAS_MEMPHIS 1'
     echo ''
   fi
-  if test "x$enable_maemo" = "xyes"; then
-    echo '#define CHAMPLAIN_HAS_MAEMO 1'
-    echo ''
-  fi
   echo '#endif'
 ],[
   enable_memphis="$enable_memphis"
-  enable_maemo="$enable_maemo"
 ])
 
 # ----------------------------------------------------------
